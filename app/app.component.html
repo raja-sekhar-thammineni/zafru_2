@@ -1,0 +1,44 @@
+<form [formGroup]="nestedForm" #f="ngForm" (ngSubmit)="save()">
+  <div class="row">
+    <label for="Full Name"> ID </label>
+    <input type="text" formControlName="ID" class="" />
+  </div>
+  <div class="row">
+    <label for="Full Name"> Full Name </label>
+    <input type="text" formControlName="fname" class="" />
+  </div>
+  <div class="row">
+    <label for="Email"> Email </label>
+    <input type="text" formControlName="Gender" class="" />
+  </div>
+  <div class="row">
+    <label for="addressLine"> State </label>
+    <input type="text" formControlName="state" class="" />
+  </div>
+
+  <div class="row">
+   
+    <input type="text" formControlName="city" class="" />
+  </div>
+  <div class="row">
+  <label for="addressLine"> City </label>
+  <select
+    [(ngModel)]="selected"
+    name="valueCheck"
+    (change)="valueChange($event)"
+    formControlName="ass"
+  >
+    <option [ngValue]="undefined" disabled>Select Any</option>
+    <option
+      *ngFor="let obj of stud"
+      [ngValue]="obj"
+      [selected]="obj == selected"
+    >
+      {{ obj }}
+    </option>
+  </select>
+</div>
+  <button type="submit">submit</button>
+  <button (click)="clear()">clearValue</button>
+</form>
+<h3>{{ selected }}</h3>
